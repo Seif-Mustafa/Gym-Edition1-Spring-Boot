@@ -15,30 +15,30 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Member")
-public class Member {
+@Table(name = "Subscription")
+public class Subscription {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long memberId;
+  private Long subscriptionId;
+
+  @Column(name = "subscription_name")
+  private String subscriptionName;
 
   @Column(name = "gym_id")
   private Long gymId;
 
-  @Column(name = "name")
-  private String name;
+  @Column(name = "num_of_days")
+  private Long numOfDays;
 
-  @Column(name = "phone_number")
-  private String phoneNumber;
+  @Column(name = "num_of_sessions")
+  private Long numOfSessions;
 
-  @Column(name = "gender")
-  private String gender;
+  @Column(name = "price")
+  private Double price;
 
-  @Column(name = "age")
-  private Integer age;
-
-  @Column(name="is_deleted")
-  private String isDeleted;
+  @Column(name = "is_active")
+  private String isActive;
 
   @CreatedBy
   @Column(name = "created_by", nullable = false, updatable = false)
@@ -55,4 +55,5 @@ public class Member {
   @LastModifiedDate
   @Column(name = "modified_on")
   private LocalDateTime modifiedOn;
+
 }
