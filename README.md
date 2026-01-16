@@ -35,4 +35,8 @@ The Gym System is a backend REST API designed to streamline the management of gy
 - [ ] Frontend Integration
 
 ---
-*Developed by [Your Name]*
+*Developed by [Seif Mustafa]*
+
+## Database Schema
+
+![Database Schema](src/main/resources/static/schema.png)
