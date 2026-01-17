@@ -1,22 +1,20 @@
 package com.gym.edition1.service.impl;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import com.gym.edition1.dto.MemberAttendanceDto;
 import com.gym.edition1.dto.request.MemberAttendRequest;
 import com.gym.edition1.mapper.MemberAttendanceMapper;
 import com.gym.edition1.model.MemberAttendance;
-import com.gym.edition1.model.MembersSubscription;
+import com.gym.edition1.model.MemberSubscription;
 import com.gym.edition1.repository.GymRepository;
 import com.gym.edition1.repository.MemberAttendanceRepository;
-import com.gym.edition1.repository.MembersSubscriptionRepository;
+import com.gym.edition1.repository.MemberSubscriptionRepository;
 
 import lombok.RequiredArgsConstructor;
 
 import com.gym.edition1.repository.MemberRepository;
 
-import org.modelmapper.internal.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.stereotype.Service;
 
 import java.util.stream.Collectors;
@@ -29,7 +27,7 @@ public class MemberAttendanceServiceImpl {
 
   private final MemberRepository memberRepository;
   private final GymRepository gymRepository;
-  private final MembersSubscriptionRepository membersSubscriptionRepository;
+  private final MemberSubscriptionRepository MemberSubscriptionRepository;
   private final MemberAttendanceRepository memberAttendanceRepository;
 
   private final MemberAttendanceMapper memberAttendanceMapper;
@@ -42,7 +40,7 @@ public class MemberAttendanceServiceImpl {
     gymRepository.findById(memberAttendRequest.getGymId())
         .orElseThrow(() -> new RuntimeException("Gym not found"));
 
-    MembersSubscription memberSubscription = membersSubscriptionRepository
+    MemberSubscription memberSubscription = MemberSubscriptionRepository
         .getMemberCurrentSubscription(memberAttendRequest.getMemberId(), memberAttendRequest.getGymId());
 
     if (memberSubscription == null) {
