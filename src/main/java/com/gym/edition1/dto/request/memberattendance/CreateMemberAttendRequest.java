@@ -1,4 +1,4 @@
-package com.gym.edition1.dto.request;
+package com.gym.edition1.dto.request.memberattendance;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +12,7 @@ import lombok.Builder;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MemberAttendRequest {
+public class CreateMemberAttendRequest {
   private Long gymId;
   private Long memberId;
   private String attendType;

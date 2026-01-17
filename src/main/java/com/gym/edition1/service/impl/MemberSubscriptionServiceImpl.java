@@ -73,4 +73,8 @@ public class MemberSubscriptionServiceImpl implements MemberSubscriptionService 
         dateFrom, dateTo, createdBy, modifiedBy);
   }
 
+  @Override
+  public MemberSubscription getMemberCurrentSubscription(Long memberId, Long gymId) {
+    return memberSubscriptionRepository.getMemberCurrentSubscription(memberId, gymId);
+  }
 }

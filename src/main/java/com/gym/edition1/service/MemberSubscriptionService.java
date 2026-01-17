@@ -27,4 +27,6 @@ public interface MemberSubscriptionService {
       LocalDate dateTo,
       Long createdBy,
       Long modifiedBy);
+
+  MemberSubscription getMemberCurrentSubscription(Long memberId, Long gymId);
 }

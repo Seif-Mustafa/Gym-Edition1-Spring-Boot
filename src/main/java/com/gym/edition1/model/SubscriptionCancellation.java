@@ -7,7 +7,6 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,33 +20,27 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@Entity
+@Table(name = "subscription_cancellation")
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "Subscription")
-public class Subscription {
+public class SubscriptionCancellation {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long subscriptionId;
+  private Long cancellationId;
 
-  @Column(name = "subscription_name")
-  private String subscriptionName;
+  @Column(name = "mem_sub_id")
+  private Long memSubId;
+
+  @Column(name="member_id")
+  private Long memberId;
 
   @Column(name = "gym_id")
   private Long gymId;
 
-  @Column(name = "num_of_days")
-  private Long numOfDays;
-
-  @Column(name = "num_of_sessions")
-  private Long numOfSessions;
-
-  @Column(name = "price")
-  private Double price;
-
-  @Column(name = "is_active")
-  private String isActive;
+  @Column(name = "returned_amount")
+  private Double returnedAmount;
 
   @CreatedBy
   @Column(name = "created_by", nullable = false, updatable = false)
@@ -63,6 +56,5 @@ public class Subscription {
 
   @LastModifiedDate
   @Column(name = "modified_on")
-  private LocalDateTime modifiedOn;
-
+  private LocalDateTime modifiedOn;  
 }
